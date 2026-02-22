@@ -16,3 +16,17 @@ html, body, #root{
 .swiper-pagination-bullet-active{
      background-color: #facc15 !important;
 }
+.movie-card {
+  background: #111;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}

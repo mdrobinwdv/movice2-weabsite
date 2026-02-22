@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import React, { useEffect, useState } from 'react'
 import CategoriesNavbar from './CategoriesNavbar';
 import MovieCard from "./MovieCard";
+import MovieMustGallary from "./MovieMustGallary";
 
 
 function MovieGallary() {
@@ -65,8 +66,9 @@ function MovieGallary() {
           )
         }
       </div>
+      
     </>
   )
 }
 
-export default MovieGallary
+export default MovieGallary;
