@@ -8,7 +8,7 @@ function Footer() {
         className=" max-w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 text-center sm:text-left ">
         {/* Brand */}
         <div>
-          <h2 className="text-yellow-400 text-4xl font-extrabold mb-3"> DRAMATIC</h2>
+          <h2 className="text-yellow-400 text-4xl font-extrabold mb-3 font-grif"> DRAMATIC</h2>
           <p className="text-gray-400 text-base">Enjoy your Movie time</p>
         </div>
 

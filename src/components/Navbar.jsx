@@ -1,59 +1,100 @@
-import React from 'react'
+import React from "react";
 
-function Navbar({searchText ,setSearchText}) {
-     const link = (
-          <>
-          <li>HOME</li>
-          <li>TV SHOW</li>
-          <li>MOVIE</li>
-          <li>NEW</li>
-          </>
-     )
-  return (
+function Navbar({ searchText, setSearchText }) {
+  const links = (
     <>
-      <div className="navbar shadow-md bg-black/40 backdrop:-blur-md text-white fixed top-0 left-0 right-0 z-100 font-mon ">
-          <div className=" w-11/12 mx-auto flex justify-between items-center ">
-               <div className="navbar-start">
-                    <div className="dropdown">
-                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-                         </div>
-                         <ul tabIndex="-1" className="menu menu-sm dropdown-content bg-black/40 backdrop:blur-md rounded-box z-1 mt-3 w-52 p-2 shadow">
-                              {link}
-                         </ul>
-                    </div>
-                    <div className=' flex items-center gap-10 '>
-                         <a className=" text-3xl font-grif text-yellow-400 ">DRAMATIC</a>
-                         <div className="navbar-center hidden lg:flex">
-                              <ul className=" flex justify-center text-[20px] items-center gap-5 ">
-                                   {link}
-                              </ul>
-                         </div>
-                    </div>
-               </div> 
-               <div className="navbar-end flex gap-6">
-                    <label className="flex items-center gap-2 bg-white/10 rounded-full px-3 py-2 border border-transparent focus-within: border-yellow-400 transition duration-300">
-                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                              <g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor">
-                                   <circle cx="11" cy="11" r="8"></circle>
-                                   <path d="m21 21-4.3-4.3"></path>
-                              </g>
-                         </svg>
-                         <input type="search" required placeholder="Search" className=" bg-transparent outline-none text-sm text-white placeholder-white/60 w-24 md:w-40 "
-                         value={searchText}
-                         onChange={(e) => setSearchText(e.target.value)}
-                         />
-                    </label>
-                    <div className="avatar">
-                         <div className="ring-[#facc15] ring-offset-black/40 rounded-full ring-2 ring-offset-2">
-                              <img className=" w-8 " src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp" />
-                         </div>
-                    </div>
-               </div>
-          </div>
-     </div>
+      <li><a className="hover:text-yellow-400">Home</a></li>
+      <li><a className="hover:text-yellow-400">TV Show</a></li>
+      <li><a className="hover:text-yellow-400">Movie</a></li>
+      <li><a className="hover:text-yellow-400">New</a></li>
     </>
-  )
+  );
+
+  return (
+    <div className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-md text-white">
+      <div className="w-11/12 mx-auto flex items-center justify-between py-2">
+
+        {/* LEFT */}
+        <div className="flex items-center gap-2">
+          {/* Mobile Menu */}
+          <div className="dropdown lg:hidden">
+            <label tabIndex={0} className="btn btn-ghost px-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu dropdown-content mt-3 p-3 shadow bg-black/80 backdrop-blur-md rounded-box w-52"
+            >
+              {links}
+            </ul>
+          </div>
+
+          {/* Logo */}
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-yellow-400 font-grif">
+            DRAMATIC
+          </h1>
+        </div>
+
+        {/* CENTER (Desktop Menu) */}
+        <ul className="hidden lg:flex gap-6 text-lg">
+          {links}
+        </ul>
+
+        {/* RIGHT */}
+        <div className="flex items-center gap-2 sm:gap-4">
+
+          {/* Search (Always Visible, Responsive Width) */}
+          <label className="
+            flex items-center gap-2
+            bg-white/10 rounded-full
+            px-2 py-1
+            border border-transparent
+            focus-within:border-yellow-400
+            transition
+          ">
+            <svg
+              className="h-4 opacity-70"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2" fill="none" />
+              <path d="m21 21-4.3-4.3" stroke="currentColor" strokeWidth="2" />
+            </svg>
+
+            <input
+              type="search"
+              placeholder="Search"
+              className="
+                bg-transparent outline-none text-sm
+                w-14 sm:w-24 md:w-40
+                placeholder-white/60
+              "
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+          </label>
+
+          {/* Avatar */}
+          <div className="w-8 sm:w-9 rounded-full ring ring-yellow-400 ring-offset-black/40 ring-offset-2 overflow-hidden">
+            <img
+              src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp"
+              alt="profile"
+            />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
 }
 
-export default Navbar
+export default Navbar;
